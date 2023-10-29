@@ -5,7 +5,8 @@ int main() {
     std::string text = "Hello World!";
     // Output the contents of the 'text' variable to the console using 'std::cout'
     std::cout << text;
-    
+
+
     // Return 0 to indicate a successful program execution
     return 0;
 }
