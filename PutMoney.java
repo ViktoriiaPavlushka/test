@@ -1,13 +1,16 @@
 
 
-public class PutMoney implements Bank{
-    public void PutMoney(PersonalOffice office, long amount){
+public class PutMoney extends Operations{
+    public void PutMoney(Card card, long amount){
 
-        long currentSum = office.getSum();
-        office.setSum(currentSum + amount);
-        System.out.println("Your balance now: " + office.getSum() + "\n");
+        long currentBalance = card.getBalance();
+        card.setBalance(currentBalance + amount);
+        System.out.println("Your balance now: " + card.getBalance() + "\n");
     }
 
     @Override
-    public void TakeMoney(PersonalOffice office, long amount) {}
+    public void TakeMoney(long amount, Card card) {
+
+    }
+
 }

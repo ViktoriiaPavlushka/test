@@ -1,3 +1,3 @@
 public abstract class Exchange implements Bank{
-    public abstract void Exchange(PersonalOffice office, long amount, String currency);
+    public abstract void Exchange(PersonalOffice office, Card card, long amount, String currency);
 }

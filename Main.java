@@ -5,8 +5,8 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        Bank putmoney = new PutMoney();
-        Bank takemoney = new TakeMoney();
+        Operations putmoney = new PutMoney();
+        Operations takemoney = new TakeMoney();
         CreditImpl credit = new CreditImpl();
         ExchangeImpl exchange = new ExchangeImpl();
 
@@ -22,7 +22,7 @@ public class Main {
         System.out.print("Enter your arrears: \n");
         long arrears = scan.nextLong();
 
-        PersonalOffice Person1 = new PersonalOffice(name, surname, numberOfCard, sum, arrears);
+       // PersonalOffice Person1 = new PersonalOffice(name, surname, numberOfCard, sum, arrears);
 
         System.out.print(" 1. Put money \n 2. Take money \n 3. Credit \n 4. Exchange \n 5. Exit \n\n");
 
@@ -37,17 +37,17 @@ public class Main {
                     case 1:
                         System.out.print("Enter your amount: ");
                         long amount = scan.nextLong();
-                        putmoney.PutMoney(Person1, amount);
+                        //putmoney.PutMoney(Person1, amount);
                         break;
                     case 2:
                         System.out.print("Enter your amount: ");
                         amount = scan.nextLong();
-                        takemoney.TakeMoney(Person1, amount);
+                       // takemoney.TakeMoney(Person1, amount);
                         break;
                     case 3:
                         System.out.print("Enter your credit amount: ");
                         amount = scan.nextLong();
-                        credit.CreditTake(Person1, amount);
+                       // credit.CreditTake(Person1, amount);
                         break;
                     case 4:
                         System.out.print("Enter your amount: ");
@@ -55,7 +55,7 @@ public class Main {
                         scan.nextLine();
                         System.out.print("Enter your currency: ");
                         String currency = scan.nextLine();
-                        exchange.Exchange(Person1, amount, currency);
+                       // exchange.Exchange(Person1, amount, currency);
                         break;
                     default:
                         System.out.println("Error. Wrong choice");

@@ -1,17 +1,20 @@
 
 
-public class TakeMoney implements Bank{
+public class TakeMoney extends Operations{
 
-    public void TakeMoney(PersonalOffice office, long amount){
+    @Override
+    public void PutMoney(Card card, long amount) {
+    }
 
-        long currentSum = office.getSum();
-        if(currentSum >= amount) {
-            office.setSum(currentSum - amount);
-            System.out.println("Your balance now: " + office.getSum() + "\n");
+    public void TakeMoney(long amount, Card card){
+
+        long currentBalance = card.getBalance();
+        if(currentBalance >= amount) {
+            card.setBalance(currentBalance - amount);
+            System.out.println("Your balance now: " + card.getBalance() + "\n");
         }else{
             System.out.println("You can not do this operation.\n");
         }
     }
-    @Override
-    public void PutMoney(PersonalOffice office, long amount) {}
+
 }

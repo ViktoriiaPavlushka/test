@@ -1,7 +1,7 @@
 import java.util.*;
 public class ExchangeImpl extends Exchange{
 
-    public void Exchange(PersonalOffice office, long amount, String currency) {
+    public void Exchange(PersonalOffice office, Card card, long amount, String currency) {
 
         Map<String, Integer> map = new HashMap<>();
         map.put("USD", 38);
@@ -10,21 +10,23 @@ public class ExchangeImpl extends Exchange{
         map.put("GBR", 48);
         map.put("CHF", 42);
 
-        long currentSum = office.getSum();
+        long currentBalance = card.getBalance();
 
         Set<Map.Entry<String, Integer>> Currency = map.entrySet();
 
         for(Map.Entry<String, Integer> entry : Currency){
             if(entry.getKey().equals(currency)){
-                if(amount*entry.getValue() <= currentSum){
-                    office.setSum(currentSum - amount*entry.getValue());
+                if(amount*entry.getValue() <= currentBalance){
+                    card.setBalance(currentBalance - amount*entry.getValue());
                 }
             }
         }
-        System.out.println("Your balance now: " + office.getSum() + "\n");
+        System.out.println("Your balance now: " + card.getBalance() + "\n");
     }
+
     @Override
-    public void PutMoney(PersonalOffice office, long amount) {}
-    @Override
-    public void TakeMoney(PersonalOffice office, long amount) {}
+    public void OpenAccount(PersonalOffice office, String currency, Card card) {
+
+    }
+
 }
