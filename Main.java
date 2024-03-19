@@ -5,8 +5,6 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        Operations putmoney = new PutMoney();
-        Operations takemoney = new TakeMoney();
         CreditImpl credit = new CreditImpl();
         ExchangeImpl exchange = new ExchangeImpl();
 

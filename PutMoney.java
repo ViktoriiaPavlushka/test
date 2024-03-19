@@ -1,6 +1,6 @@
 
 
-public class PutMoney extends Operations{
+public class PutMoney extends Bank{
     public void PutMoney(Card card, long amount){
 
         long currentBalance = card.getBalance();
@@ -8,9 +8,5 @@ public class PutMoney extends Operations{
         System.out.println("Your balance now: " + card.getBalance() + "\n");
     }
 
-    @Override
-    public void TakeMoney(long amount, Card card) {
-
-    }
 
 }

@@ -1,4 +1,4 @@
 
-public abstract class Credit extends Operations{
-    public abstract void CreditTake(PersonalOffice office, Card card,  long amount);
+public abstract class Credit extends Bank{
+    public abstract void CreditTake(Card card,  long amount);
 }

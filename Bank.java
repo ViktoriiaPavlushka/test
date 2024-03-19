@@ -1,5 +1,9 @@
-public interface Bank {
-    public void OpenAccount(PersonalOffice office, String currency, Card card);
+public class Bank {
+   Exchange exchange ;
+   Credit credit;
+   OpenAccount openaccount;
+   PutMoney putmoney;
+   TakeMoney takemoney;
 
 }
 
