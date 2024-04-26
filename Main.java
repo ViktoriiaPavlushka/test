@@ -1,93 +1,87 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/*public class Main {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.insert(6, 2);
+        list.insert(7, 0);
+        list.insert(8, 7);
+        list.insert(9, 9);
+        list.setNodeAtIndex(0, 10);
+        list.setNodeAtIndex(2, 20);
+        list.setNodeAtIndex(4, 30);
+        list.setNodeAtIndex(6, 40);
+        list.setNodeAtIndex(8, 50);
+        list.setNodeAtIndex(10, 60);
+        System.out.println("Size of the linked list: " + list.size());
+        list.print();
+    }
+}*/
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        Scanner scan = new Scanner(System.in);
-        Bank bank = new Bank();
-
-        System.out.println("Enter your personal information.");
-        System.out.println("Enter your name:");
-        String name = scan.nextLine();
-        System.out.println("Enter your surname:");
-        String surname = scan.nextLine();
-        System.out.println("Enter sum of money on your card:");
-        double balance = scan.nextDouble();
-        scan.nextLine();
-        System.out.print("Enter currency of your card:");
-        String currency = scan.nextLine();
-        User user = bank.OpenAccount(name, surname, balance, currency);
-
-        System.out.println(" 1. New card \n 2. Put money \n 3. Take money \n 4. Credit \n 5. Exchange \n 6. Exit");
+        LinkedList list = new LinkedList();
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Select the following actions: ");
-            int action = scan.nextInt();
-            if(action == 6){
-                System.out.print("Good Bye! Don't come back again :)");
-                break;
-            }else {
-                switch (action) {
-                    case 1:
-                        System.out.println("Enter your currency: ");
-                        scan.nextLine();
-                        String currency2 = scan.nextLine();
-                        System.out.println("Enter your balance: ");
-                        double balance2 = scan.nextDouble();
-                        Card card = user.NewCard(balance2, currency2);
-                        card.WriteCurrency();
-                        break;
-                    case 2:
-                        System.out.print("Enter your amount: ");
-                        double amount = scan.nextDouble();
-                        scan.nextLine();
-                        System.out.print("Enter your currency: ");
-                        String ccurrency = scan.nextLine();
-                        bank.putMoney(amount, ccurrency, user);
-                        break;
-                    case 3:
-                        System.out.print("If you want to take money of another currency write '1', else '2': ");
-                        int number = scan.nextInt();
-                        if(number == 2){
-                            System.out.print("Enter your amount: ");
-                            amount = scan.nextDouble();
-                            scan.nextLine();
-                            System.out.print("Enter your currency: ");
-                            String ccurrency2 = scan.nextLine();
-                            bank.takeMoney(amount, ccurrency2, user);
-                        }else{
-                            System.out.print("Enter your card-from currency: ");
-                            scan.nextLine();
-                            String currencyFrom = scan.nextLine();
-                            System.out.print("Enter your currency: ");
-                            String currencyTo = scan.nextLine();
-                            System.out.print("Enter your amount: ");
-                            amount = scan.nextDouble();
-                            bank.takeMoney(amount, currencyFrom, user, currencyTo);
-                        }
-                        break;
-                    case 4:
-                        System.out.print("Enter your credit amount: ");
-                        amount = scan.nextDouble();
-                        scan.nextLine();
-                        System.out.print("Enter your currency: ");
-                        String ccurrency2 = scan.nextLine();
-                        bank.credit(amount, ccurrency2, user);
-                        break;
-                    case 5:
-                        System.out.print("Enter your card-from currency: ");
-                        scan.nextLine();
-                        String currencyFrom = scan.nextLine();
-                        System.out.print("Enter your card-to currency: ");
-                        String currencyTo = scan.nextLine();
-                        System.out.print("Enter your amount: ");
-                        amount = scan.nextDouble();
-                        bank.exchange(amount, currencyTo, currencyFrom, user);
-                        break;
-                    default:
-                        System.out.println("Error. Wrong choice");
-                        break;
-                }
+            System.out.println("Choose an operation:");
+            System.out.println("1. Add");
+            System.out.println("2. Insert");
+            System.out.println("3. Set");
+            System.out.println("4. Print");
+            System.out.println("5. Size");
+            System.out.println("6. Erase");
+            System.out.println("7. Exit");
+            System.out.print("Enter your choice: ");
+
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value to add: ");
+                    int valueToAdd = scanner.nextInt();
+                    list.add(valueToAdd);
+                    break;
+                case 2:
+                    System.out.print("Enter value to insert: ");
+                    int valueToInsert = scanner.nextInt();
+                    System.out.print("Enter index to insert at: ");
+                    int indexToInsert = scanner.nextInt();
+                    list.insert(valueToInsert, indexToInsert);
+                    break;
+                case 3:
+                    System.out.print("Enter index to set value: ");
+                    int indexToSet = scanner.nextInt();
+                    System.out.print("Enter value to set: ");
+                    int valueToSet = scanner.nextInt();
+                    list.setNodeAtIndex(indexToSet, valueToSet);
+                    break;
+                case 4:
+                    System.out.println("Linked List:");
+                    list.print();
+                    break;
+                case 5:
+                    System.out.println("Size of the linked list: " + list.size());
+                    break;
+                case 6:
+                    System.out.print("Enter index of beginning to erase: ");
+                    int indexToStartErase = scanner.nextInt();
+                    System.out.print("Enter amount of elements to erase: ");
+                    int amount = scanner.nextInt();
+                    list.erase(indexToStartErase, amount);
+                    break;
+                case 7:
+                    System.out.println("goodbye!");
+                    scanner.close();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 6.");
             }
         }
     }
